@@ -6,13 +6,13 @@
 
 Code templates and examples in Python3, currently including common **data structure** & **algorithms** and **python tricks**.
 
-I have summarized general code templates for particular algorithms, and add most typical examples to help make better use of it. All the examples come from [LeetCode](https://www.leetcode.com), and I have attached the problem id and brief description.
+I have collected and summarized general code templates for particular algorithms, and add most typical examples to help make better use of it. All the examples come from [LeetCode](https://www.leetcode.com), and I have attached the problem id and brief description.
 
 
 
 ***"Stop Trying to Reinvent the Wheel"***
 
-So I try my best to find the commonality in problems, solutions, and codes. When I study, I have summarized templates for future use. First I do it for myself, and now I glad to share to people who also need it.
+So I try my best to find the commonality in problems, solutions and codes. When I study, I have summarized templates for future use. First I do it for myself, and now I glad to share to people who also need it.
 
 
 
