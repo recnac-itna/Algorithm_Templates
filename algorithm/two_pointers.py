@@ -1,4 +1,4 @@
-# two pointers scenario, famous application such as binary search, quick sort and sliding window.
+# two pointers scenario, famous applications such as binary search, quick sort and sliding window.
 
 '''
 Classification:
@@ -18,7 +18,7 @@ def old_new_state(self, seq):
         '''
         process current element with help of old state
         '''
-        cur_result = self.process(element, old)
+        cur_result = self.process_logic(element, old)
         old, new = new, cur_result
 
 
@@ -31,8 +31,12 @@ def slow_fast_pointer(self, seq):
         '''
         slow-runner grows with some restrict
         '''
-        if self.slow_checker(slow):
+        if self.slow_condition(slow):
             slow = slow.next    # or slow += 1
+        '''
+        process logic before or after pointers movement
+        '''
+        self.process_logic(slow, fast)
 
 
 # left & right boundary or index: left-> <-right
@@ -54,7 +58,7 @@ def left_right_index(self, seq):
         '''
         process logic before or after pointers movement
         '''
-        self.process_logic()
+        self.process_logic(left, right)
 
 
 # p1 & p2 from two sequences: p1-> p2->
@@ -68,22 +72,22 @@ def pointers_from_two_seq(self, seq1, seq2):
         p1 index moves when satisfy the condition
         '''
         if self.p1_condition(p1):
-            p1 += 1
+            p1 += 1         # or p1 = next(seq1)
 
         '''
         p2 index move when satisfy the condition
         '''
         if self.p2_condition(p2):
-            p2 += 1
+            p2 += 1         # or p2 = next(seq2)
 
         '''
         process logic before or after pointers movement
         '''
-        self.process_logic()
+        self.process_logic(p1, p2)
 
 
 # start & end sliding window boundary: start-> end->
-# more details templates in sliding windows, here is just about two-pointers part
+# more details in sliding windows templates, here is just about two-pointers part
 def start_end_sliding_window(self, seq):
     start, end = 0, 0
 
@@ -93,7 +97,10 @@ def start_end_sliding_window(self, seq):
         '''
         start grows with some restrict
         '''
-        if self.start_checker(start):
+        if self.start_condition(start):
             start += 1
-
+        '''
+        process logic before or after pointers movement
+        '''
+        self.process_logic(start, end)
 

@@ -6,18 +6,20 @@
 
 
 # recursion version
-def dfs_recursively(node, visited: set):
+def dfs_recursively(self, node, visited: set):
     visited.add(node)
     '''
     process current node logic here
     '''
+    self.process_logic(node)
+
     for next_node in node.get_successors():
         if next_node not in visited:
-            dfs_recursively(next_node, visited)
+            self.dfs_recursively(next_node, visited)
 
 
 # iteration version, uncommon
-def dfs_iteratively(root):
+def dfs_iteratively(self, root):
     stack, visited = [root], set()
     while stack:
         node = stack.pop()
@@ -25,6 +27,8 @@ def dfs_iteratively(root):
         '''
         process current node logic here
         '''
+        self.process_logic(node)
+
         for next_node in node.get_successors():
             if next_node not in visited:
                 stack.append(next_node)

@@ -4,7 +4,7 @@
 # direction: bottom-up or top-down
 
 
-def dynamic_programming_template(word1, word2):
+def dynamic_programming_template_with_example(word1, word2):
     m, n = len(word1), len(word2)
 
     # states definition: cur_min_edit_dist

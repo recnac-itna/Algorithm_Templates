@@ -2,6 +2,8 @@ import bisect
 
 
 # [367] https://leetcode.com/problems/valid-perfect-square/
+# Given a positive integer num, write a function which returns True if num is a perfect square else False.
+#
 # standard scenario
 def is_perfect_square(num: 'int') -> 'bool':
     low, high = 1, num // 2
@@ -17,6 +19,9 @@ def is_perfect_square(num: 'int') -> 'bool':
 
 
 # [33] https://leetcode.com/problems/search-in-rotated-sorted-array/
+# an array sorted in ascending order is rotated at some pivot unknown,
+# given a target value to search. If found in the array return its index,
+#
 # variation with rotated sort
 def search_in_rotated_sorted_array(nums: 'List[int]', target: int) -> int:
     lo, hi = 0, len(nums) - 1
@@ -44,6 +49,8 @@ def search_in_rotated_sorted_array(nums: 'List[int]', target: int) -> int:
 
 
 # [374] https://leetcode.com/problems/guess-number-higher-or-lower/
+# You have to guess which number I picked, I'll tell you whether the number is higher or lower.
+#
 # variation with tri-partition search
 def guessNumber(n):
     # fake API
@@ -69,6 +76,8 @@ def guessNumber(n):
 
 
 # [374] https://leetcode.com/problems/guess-number-higher-or-lower/
+# You have to guess which number I picked, I'll tell you whether the number is higher or lower.
+#
 # variation with construct a sorted iterator
 def guessNumber1(n):
     # fake API
@@ -82,6 +91,10 @@ def guessNumber1(n):
 
 
 # [635] https://leetcode.com/problems/design-log-storage-system
+# Design a log storage system to implement the following functions:
+# 1. Given a log's unique id and timestamp, store the log in your storage system.
+# 2. Return the id of logs whose timestamps are within the range from start to end.
+#
 # variation with application design
 class LogSystem:
     def __init__(self):
@@ -103,6 +116,8 @@ class LogSystem:
 
 
 # [240] https://leetcode.com/problems/search-a-2d-matrix-ii/
+# Write an efficient algorithm that searches for a value in matrix which sorted in each row and column
+#
 # variation with in matrix, not the most efficient solution
 def searchMatrix(matrix, target):
     if not matrix:

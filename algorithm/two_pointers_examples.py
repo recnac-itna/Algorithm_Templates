@@ -279,7 +279,7 @@ def largeGroupPositions(S):
 
 
 # [3] https://leetcode.com/problems/longest-substring-without-repeating-characters/
-# variation with no pattern
+# Given a string, find the length of the longest substring without repeating characters.
 def lengthOfLongestSubstring(s):
     # create a default dict to maintain state
     counter = defaultdict(int)

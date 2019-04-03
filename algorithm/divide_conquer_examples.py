@@ -14,7 +14,7 @@ def myPow(self, x, n):
 
 
 # [169] https://leetcode.com/problems/majority-element/
-# Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times.
+# Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊n/2⌋ times.
 def majorityElement(nums):
     def majority_element_rec(lo, hi):
         # base case; the only element in an array of size 1 is the majority
@@ -42,6 +42,7 @@ def majorityElement(nums):
 
 
 # [53] https://leetcode.com/problems/maximum-subarray/
+# Given an integer array nums, find the contiguous sub-array which has the largest sum and return its sum.
 def maxSubArray(nums):
     def maximum_sub_array_sum_rec(nums):
         if not nums:
@@ -63,6 +64,7 @@ def maxSubArray(nums):
 
 # [973] https://leetcode.com/problems/k-closest-points-to-origin/
 # Find the K closest points to the origin (0, 0)
+#
 # partition and sort, similar to quick sort
 def kClosest(points, K):
     dist = lambda i: points[i][0] ** 2 + points[i][1] ** 2

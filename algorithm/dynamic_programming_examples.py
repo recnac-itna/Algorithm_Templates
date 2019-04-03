@@ -15,7 +15,8 @@ def coinChange(coins, amount):
 
 
 # [300] https://leetcode.com/problems/longest-increasing-subsequence/
-# Given an unsorted array of integers, find the length of longest increasing subsequence.
+# Given an unsorted array of integers, find the length of longest increasing sub-sequence.
+#
 # dp O(n^2)
 def lengthOfLIS1(nums: 'List[int]') -> int:
     if not nums: return 0
@@ -31,6 +32,8 @@ def lengthOfLIS1(nums: 'List[int]') -> int:
 
 
 # [300] https://leetcode.com/problems/longest-increasing-subsequence/
+# Given an unsorted array of integers, find the length of longest increasing sub-sequence.
+#
 # dp with binary search O(nlog(n))
 def lengthOfLIS2(nums: 'List[int]') -> int:
     dp = [0] * len(nums)
@@ -78,6 +81,7 @@ def minDistance(word1: 'str', word2: 'str') -> 'int':
 
 # [562] https://leetcode.com/problems/longest-line-of-consecutive-one-in-matrix/
 # find the longest line of consecutive one in the matrix. The line could be horizontal, vertical, diagonal or anti-diagonal.
+#
 # 3D DP
 def longestLine1(M: 'List[List[int]]') -> int:
     if len(M) == 0:
@@ -98,6 +102,8 @@ def longestLine1(M: 'List[List[int]]') -> int:
 
 
 # [562] https://leetcode.com/problems/longest-line-of-consecutive-one-in-matrix/
+# find the longest line of consecutive one in the matrix. The line could be horizontal, vertical, diagonal or anti-diagonal.
+#
 # compress to 2D DP
 def longestLine2(M: 'List[List[int]]') -> int:
     if len(M) == 0:
@@ -162,6 +168,7 @@ def maxProfit(k: int, prices: 'List[int]') -> int:
 
 
 # [188] https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/
+# Design an algorithm to find the maximum profit. You may complete at most k transactions.
 def maxProfit2(k: int, prices: 'List[int]') -> int:
     if not prices or k == 0:
         return 0

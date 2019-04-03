@@ -12,10 +12,11 @@ def divide_conquer(self, problem, *params):
     # recursion terminator
     if problem is None:
         # terminator logic here
-        return None
+        return self.process_terminator_logic()
 
     # prepare data
     data = self.prepare_data(problem)
+
     # divide the problem to sub-problems
     sub_problems = self.split_problem(problem, data)
 

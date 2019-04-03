@@ -44,6 +44,8 @@ def numSquares(n: int) -> int:
 
 
 # [279] https://leetcode.com/problems/perfect-squares/
+# given a positive integer n, find the least number of perfect square numbers
+#
 # bidirectional BFS, faster than one-directional BFS
 def numSquares2(n):
     front, back, pm = [0], [n], 1  # pm is "plus minus"
@@ -81,7 +83,8 @@ def wallsAndGates(rooms: 'List[List[int]]') -> None:
 # [582] https://leetcode.com/problems/kill-process/
 # Now given the two lists, and a PID representing a process you want to kill,
 # return a list of PIDs of processes that will be killed in the end.
-# pythonic-style BFS
+#
+# pythonic-style BFS, concise and elegant
 def killProcess(pid, ppid, kill):
     d = defaultdict(list)
     for c, p in zip(pid, ppid):

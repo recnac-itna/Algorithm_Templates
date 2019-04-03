@@ -43,6 +43,8 @@ def solveNQueens(n):
 
 
 # [37] https://leetcode.com/problems/sudoku-solver/
+# Write a program to solve a Sudoku puzzle by filling the empty cells.
+#
 # easy-understanding version, not a efficient solution
 # optimize: use priority queue and bit-manipulation
 def solveSudoku(board):
@@ -154,6 +156,7 @@ def subsetsWithDup(nums: 'List[int]') -> 'List[List[int]]':
 
 # [10] https://leetcode.com/problems/regular-expression-matching/
 # Given an input string (s) and a pattern (p), implement regular expression matching with support for '.' and '*'.
+#
 # The key point to enhance performance is pre-processing pattern
 # specific optimization, not very scalable, but efficient for this solution.
 def isMatch(s, p):

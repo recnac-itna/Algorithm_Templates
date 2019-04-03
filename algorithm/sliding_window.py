@@ -4,12 +4,11 @@
 #
 # Time:  O(n)
 # Space: O(k) k = len(set(p))
-
 from collections import Counter
 
 
-# s - target iterator, p - pattern or restrict iterator
-def sliding_window_template(s, p):
+# s - target sequence, p - pattern or restrict sequence
+def sliding_window_template_with_examples(s, p):
     # initialize the hash map here
     # counter is used to record current state, could use defaultdict in some situation, for example, no p restrict
     counter = Counter(p)
