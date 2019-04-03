@@ -1,4 +1,5 @@
 import heapq
+from copy import copy
 
 
 # [212] https://leetcode.com/problems/word-search-ii/
@@ -100,7 +101,7 @@ class AutocompleteSystem:
             heap = []
             if '#' in trie:
                 # ASCII-code order
-                heapq.heappush(heap, HeapItem.clone(trie['#']))
+                heapq.heappush(heap, copy(trie['#']))
 
             for c in trie:
                 if c != '#' and c != '*':
@@ -108,9 +109,9 @@ class AutocompleteSystem:
                     cur_heap = dfs(trie[c])
                     for item in cur_heap:
                         if len(heap) < self.size:
-                            heapq.heappush(heap, HeapItem.clone(item))
+                            heapq.heappush(heap, copy(item))
                         else:
-                            heapq.heappushpop(heap, HeapItem.clone(item))
+                            heapq.heappushpop(heap, copy(item))
             trie['*'] = heap
             return heap
 
@@ -142,9 +143,9 @@ class AutocompleteSystem:
                     break
             else:
                 if len(heap) < self.size:
-                    heapq.heappush(heap, HeapItem.clone(word_item))
+                    heapq.heappush(heap, copy(word_item))
                 else:
-                    heapq.heappushpop(heap, HeapItem.clone(word_item))
+                    heapq.heappushpop(heap, copy(word_item))
 
     def input(self, c: str) -> 'List[str]':
         res = []
@@ -185,8 +186,8 @@ class HeapItem:
     def __repr__(self):
         return self.word + ',' + str(self.count)
 
-    def clone(other):
-        return HeapItem(other.count, other.word)
+    def __copy__(self):
+        return HeapItem(self.count, self.word)
 
 # Your AutocompleteSystem object will be instantiated and called as such:
 # obj = AutocompleteSystem(sentences, times)

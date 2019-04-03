@@ -1,4 +1,6 @@
 # [323] https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/
+# Given n nodes labeled from 0 to n - 1 and a list of undirected edges (each edge is a pair of nodes),
+# write a function to find the number of connected components in an undirected graph.
 def countComponents(n: int, edges: 'List[List[int]]') -> int:
     roots = [i for i in range(n)]
 
@@ -22,6 +24,8 @@ def countComponents(n: int, edges: 'List[List[int]]') -> int:
     return len(set([find(x) for x in roots]))
 
 # [305] https://leetcode.com/problems/number-of-islands-ii/
+# Given a list of positions to operate, count the number of islands after each addLand operation.
+#
 # light-weight version
 def numIslands2(m, n, positions):
     parent, rank, count = {}, {}, 0
@@ -58,6 +62,8 @@ def numIslands2(m, n, positions):
 
 
 # [305] https://leetcode.com/problems/number-of-islands-ii/
+# Given a list of positions to operate, count the number of islands after each addLand operation.
+#
 # full object oriented version
 class Union:
     def __init__(self, value):
@@ -117,6 +123,7 @@ def numIslands21(m: int, n: int, positions: 'List[List[int]]') -> 'List[int]':
 
 
 # [737] https://leetcode.com/problems/sentence-similarity-ii/
+# Given two sentences words1, words2, and a list of similar word pairs pairs, determine if two sentences are similar.
 class UnionFind2:
     def __init__(self, n):
         self.parent = [i for i in range(n)]
@@ -158,3 +165,45 @@ def areSentencesSimilarTwo(words1, words2, pairs):
             return False
     return True
 
+
+# [399] https://leetcode.com/problems/evaluate-division/
+# Equations are given in the format A / B = k, where A and B are variables represented as strings,
+# and k is a real number (floating point number). Given some queries, return the answers.
+class DJS:
+    def __init__(self, alphabet):
+        self.parent = {char: char for char in alphabet}
+        self.vals = {char: 1.0 for char in alphabet}
+
+    def find(self, x):
+        if self.parent[x] != x:
+            self.parent[x], val = self.find(self.parent[x])
+            self.vals[x] *= val
+        return self.parent[x], self.vals[x]
+
+    def union(self, y, x, val):
+        x, val_x = self.find(x)
+        y, val_y = self.find(y)
+        if x == y: return
+        self.parent[y] = self.parent[x]
+        self.vals[y] = val * val_x / val_y
+
+
+def calcEquation(equations: 'List[List[str]]', values: 'List[float]',
+                 queries: 'List[List[str]]') -> 'List[float]':
+    alphabet = set(sum(equations, []))
+    ufo = DJS(alphabet)
+    for (y, x), val in zip(equations, values):
+        ufo.union(y, x, val)
+
+    res = []
+    for y, x in queries:
+        if x not in alphabet or y not in alphabet:
+            res.append(-1.0)
+            continue
+        y, val_y = ufo.find(y)
+        x, val_x = ufo.find(x)
+        if x == y:
+            res.append(val_y / val_x)
+        else:
+            res.append(-1.0)
+    return res

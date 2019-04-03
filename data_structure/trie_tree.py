@@ -5,7 +5,6 @@
 # words list has k words, the max word len is m
 # Time:  O(m) for match once
 # Space: O(mk)
-from collections import defaultdict
 
 
 # dict version
@@ -39,7 +38,7 @@ def trie_tree_template(word_to_match: str, words_to_build: 'List[str]'):
         res.append(cur['#'])
 
 
-ALPHABET_SIZE = 256
+ALPHABET_SIZE = 26
 
 
 # object-oriented fixed-list version

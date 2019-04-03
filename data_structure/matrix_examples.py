@@ -4,13 +4,16 @@ from itertools import zip_longest
 
 # [48] https://leetcode.com/problems/rotate-image/
 # Rotate the image by 90 degrees (clockwise)
-# Clean Most Pythonic
+#
+# clean most pythonic
 def rotate1(A):
     # the the result rows are actually tuples, not lists, so it's a bit dirty. To fix this, we can just apply list to every row
     A[:] = map(list, zip(*A[::-1]))
 
 
 # [48] https://leetcode.com/problems/rotate-image/
+# Rotate the image by 90 degrees (clockwise)
+#
 # use ~ in slice
 def rotate2(A):
     n = len(A)
@@ -20,7 +23,9 @@ def rotate2(A):
 
 
 # [48] https://leetcode.com/problems/rotate-image/
-# List Comprehension
+# Rotate the image by 90 degrees (clockwise)
+#
+# list comprehension
 def rotate3(A):
     A[:] = [[row[i] for row in A[::-1]] for i in range(len(A))]
 
@@ -31,12 +36,13 @@ def rotate3(A):
 # |4 5 6|  =>  |5 8|  =>  |5 4|  =>  |5|
 # |7 8 9|      |4 7|
 def spiralOrder1(self, matrix):
-    # [*zip(*arr)]转置矩阵的方法，and返回右值
+    # and return right value
     return matrix and [*matrix.pop(0)] + self.spiralOrder1([*zip(*matrix)][::-1])
 
 
 # [59] https://leetcode.com/problems/spiral-matrix-ii/
 # generate a square matrix filled with elements from 1 to n2 in spiral order.
+#
 # simulation
 def generateMatrix1(n):
     M = [[0] * n for _ in range(n)]
@@ -52,6 +58,8 @@ def generateMatrix1(n):
 
 
 # [59] https://leetcode.com/problems/spiral-matrix-ii/
+# generate a square matrix filled with elements from 1 to n2 in spiral order.
+#
 # use zip
 def generateMatrix2(n):
     M, lo = [], n * n + 1
@@ -62,6 +70,8 @@ def generateMatrix2(n):
 
 
 # [422] https://leetcode.com/problems/valid-word-square/
+# Given a sequence of words, check whether it forms a valid word square.
+#
 # The map(None, ...) transposes the "matrix", filling missing spots with None, not worked in Python3
 def validWordSquare1(words):
     return map(None, *words) == map(None, *map(None, *words))
@@ -92,6 +102,7 @@ def validWordSquare5(words):
 
 # [240] https://leetcode.com/problems/search-a-2d-matrix-ii/
 # Write an efficient algorithm that searches for a value in matrix which sorted in each row and column
+#
 # binary search reduction
 def searchMatrix(matrix, target):
     if not matrix or not matrix[0]:
@@ -132,6 +143,8 @@ def searchMatrix(matrix, target):
 
 
 # [240] https://leetcode.com/problems/search-a-2d-matrix-ii/
+# Write an efficient algorithm that searches for a value in matrix which sorted in each row and column
+#
 # Divide and Conquer
 def searchMatrix1(matrix, target):
     # an empty matrix obviously does not contain `target`
@@ -162,6 +175,8 @@ def searchMatrix1(matrix, target):
 
 
 # [240] https://leetcode.com/problems/search-a-2d-matrix-ii/
+# Write an efficient algorithm that searches for a value in matrix which sorted in each row and column
+#
 # O(m+n) search space reduction
 def searchMatrix2(matrix, target):
     # an empty matrix obviously does not contain `target` (make this check

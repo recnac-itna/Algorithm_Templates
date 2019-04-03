@@ -1,3 +1,5 @@
+# common operations of matrix with examples
+# here matrix just represents 2-dimension array, not including matrix operation
 from collections import defaultdict
 
 '''
@@ -6,7 +8,7 @@ matrix neighbors traversal
 
 
 # simulation
-def traverse_neighbor(matrix):
+def traverse_neighbor(self, matrix):
     if not matrix or not matrix[0]:
         return
 
@@ -19,11 +21,11 @@ def traverse_neighbor(matrix):
                     '''
                     neighbor logic process
                     '''
-                    print(matrix[I][J])
+                    self.procee_logic(matrix[I][J])
 
 
 # use one-dimensional dict, and access neighbors by complex number
-def traverse_neighbor_by_complex(board):
+def traverse_neighbor_by_complex(self, board):
     board = {i + 1j * j: v for i, row in enumerate(board) for j, v in enumerate(row)}
     for z in board:
         # get neighbor by complex number operation
@@ -31,7 +33,7 @@ def traverse_neighbor_by_complex(board):
             '''
             neighbor logic process
             '''
-            print(board.get(z + 1j ** k))
+            self.procee_neighor_logic(board.get(z + 1j ** k))
 
 
 '''
@@ -40,7 +42,7 @@ matrix analog anti-analog traversal
 
 
 # simulation, in place, without extra space
-def traverse_analogs(M):
+def traverse_analogs(self, M):
     if not M or not M[0]:
         return
     m, n = len(M), len(M[0])
@@ -51,7 +53,7 @@ def traverse_analogs(M):
             '''
             analog logic process here
             '''
-            print(M[i + k][j + k])
+            self.process_analog_logic(M[i + k][j + k])
 
     # check anti-analog
     for i, j in [(i, n - 1) for i in range(m)] + [(0, j) for j in range(n - 1)]:
@@ -61,7 +63,7 @@ def traverse_analogs(M):
             '''
             anti-analog logic process here
             '''
-            print(M[i + k][j - k])
+            self.process_anti_analog_logic(M[i + k][j - k])
 
 
 # use list, similar to dp
@@ -112,7 +114,7 @@ def longestLine2(M):
 
 
 '''
-matrix transpose
+transpose matrix
 '''
 
 
@@ -125,7 +127,7 @@ spiral matrix
 '''
 
 
-# simulation, rotate direction: di, dj = dj, -di (0, 1) -> (1, 0) -> (0, -1) -> (-1, 0) -> (0, 1)
+# simulation, rotate direction: di, dj = dj, -di   i.e. (0, 1) -> (1, 0) -> (0, -1) -> (-1, 0) -> (0, 1)
 def generate_spiral_matrix(n):
     M = [[0] * n for _ in range(n)]
     i, j, di, dj = 0, 0, 0, 1

@@ -19,7 +19,7 @@ traverse binary tree recursively
 
 
 # pre-order: root->left->right
-def preorder_traversal_recursively(root: 'TreeNode'):
+def preorder_traversal_recursively(self, root: 'TreeNode'):
     # recursion terminator here
     # you can check if none when add left and right child, it will decrease one recursion depth,
     # but you have to check whether root is None outside.
@@ -28,42 +28,42 @@ def preorder_traversal_recursively(root: 'TreeNode'):
     '''
     add current node logic here
     '''
-    print(root.val)
+    self.process_logic(root)
 
-    preorder_traversal_recursively(root.left)
-    preorder_traversal_recursively(root.right)
+    self.preorder_traversal_recursively(root.left)
+    self.preorder_traversal_recursively(root.right)
 
 
 # in-order: left->root->right
-def inorder_traversal_recursively(root: 'TreeNode'):
+def inorder_traversal_recursively(self, root: 'TreeNode'):
     if not root:
         return
 
-    inorder_traversal_recursively(root.left)
+    self.inorder_traversal_recursively(root.left)
     '''
     add current node logic here
     '''
-    print(root.val)
+    self.process_logic(root)
 
-    inorder_traversal_recursively(root.right)
+    self.inorder_traversal_recursively(root.right)
 
 
 # post-order: left->right->root
-def postorder_traversal_recursively(root: 'TreeNode'):
+def postorder_traversal_recursively(self, root: 'TreeNode'):
     if not root:
         return
 
-    postorder_traversal_recursively(root.left)
-    postorder_traversal_recursively(root.right)
+    self.postorder_traversal_recursively(root.left)
+    self.postorder_traversal_recursively(root.right)
     '''
     add current node logic here
     '''
-    print(root.val)
+    self.process_logic(root)
 
 
 # level-order
 # to traverse recursively, need help from extra data structure or dfs level by level
-def level_order_traversal_recursively(root: 'TreeNode') -> 'List[List[int]]':
+def level_order_traversal_recursively(self, root: 'TreeNode') -> 'List[List[int]]':
     res = []
 
     def dfs(root, level):
@@ -74,6 +74,8 @@ def level_order_traversal_recursively(root: 'TreeNode') -> 'List[List[int]]':
         '''
         add current node logic here
         '''
+        self.process_logic(root)
+
         res[level].append(root.val)
         dfs(root.left, level + 1)
         dfs(root.right, level + 1)
@@ -88,7 +90,7 @@ traverse binary tree iteratively
 
 
 # pre-order: root->left->right
-def preorder_traversal_iteratively(root: 'TreeNode'):
+def preorder_traversal_iteratively(self, root: 'TreeNode'):
     if not root:
         return []
     stack, ans = [root], []
@@ -97,7 +99,8 @@ def preorder_traversal_iteratively(root: 'TreeNode'):
         '''
         add current node logic here
         '''
-        print(root.val)
+        self.process_logic(root)
+
         # push right child first because of FILO
         if root.right:
             stack.append(root.right)
@@ -106,7 +109,7 @@ def preorder_traversal_iteratively(root: 'TreeNode'):
 
 
 # in-order: left->root->right
-def inorder_traversal_iteratively(root: 'TreeNode'):
+def inorder_traversal_iteratively(self, root: 'TreeNode'):
     stack = []
     # keep stack empty and compare root too, compatible with edge case: root=None
     while stack or root:
@@ -118,13 +121,14 @@ def inorder_traversal_iteratively(root: 'TreeNode'):
         '''
         add current node logic here
         '''
-        print(root.val)
+        self.process_logic(root)
+
         # point to right child
         root = root.right
 
 
 # post-order: left->right->root
-def postorder_traversal_iteratively(root: 'TreeNode'):
+def postorder_traversal_iteratively(self, root: 'TreeNode'):
     stack = [root]
     # used to record whether left or right child has been visited
     last = None
@@ -136,7 +140,8 @@ def postorder_traversal_iteratively(root: 'TreeNode'):
             '''
             add current node logic here
             '''
-            print(root.val)
+            self.process_logic(root)
+
             stack.pop()
             last = root
         # if not, push right and left child in stack
@@ -150,7 +155,7 @@ def postorder_traversal_iteratively(root: 'TreeNode'):
 
 # post-order: left->right->root
 # use visit flag
-def postorder_traversal_iteratively2(root: 'TreeNode'):
+def postorder_traversal_iteratively2(self, root: 'TreeNode'):
     if not root:
         return []
     stack = [root]
@@ -161,7 +166,8 @@ def postorder_traversal_iteratively2(root: 'TreeNode'):
             '''
             add current node logic here
             '''
-            print(root.val)
+            self.process_logic(root)
+
             stack.pop()
             del root.visited
         else:
@@ -173,7 +179,7 @@ def postorder_traversal_iteratively2(root: 'TreeNode'):
 
 
 # level-order
-def level_order_traversal_iteratively(root: 'TreeNode'):
+def level_order_traversal_iteratively(self, root: 'TreeNode'):
     if not root:
         return []
     queue = deque([root])
@@ -183,7 +189,8 @@ def level_order_traversal_iteratively(root: 'TreeNode'):
             '''
             add current node logic here
             '''
-            print(cur.val)
+            self.process_logic(cur)
+
             if cur.left:
                 queue.append(cur.left)
             if cur.right:

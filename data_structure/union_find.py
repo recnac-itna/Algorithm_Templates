@@ -1,11 +1,8 @@
 # Union find, also called Disjoint-set, tracks a set of elements partitioned into a number of disjoint (non-overlapping) subsets
-#
 # optimized by rank and path compression
 #
-# Time Complexity: Total Number of operations=(N+P). Number of
-# nodes=2*P Thus time complexity=O((N+P)* alpha(P)) alpha(P) (Also know as
-# Inverse-Ackermann function) grows very slowly and will always be less than or
-# equal to 5.
+# Time Complexity: Total Number of operations=(N+P). Number of nodes=2*P Thus time complexity=O((N+P)* alpha(P)) alpha(P)
+# (Also know as Inverse-Ackermann function) grows very slowly and will always be less than or equal to 5.
 #
 # Time:  O(n)
 # Space: O(n)
@@ -101,7 +98,7 @@ class UnionFind:
             x.rank += x.rank == y.rank
 
 
-# id_map-version
+# id_map version
 class UnionFind2:
     # initialization n union_set
     def __init__(self, n):
