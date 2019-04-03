@@ -6,6 +6,8 @@
 
 code templates and examples in python, currently mainly used in common algorithms.
 
+It is written in Python, but easy to extend to other languages, such as Java, C++. 
+Just replace the python syntactic sugar and dynamic type system, maybe just less concise.
 
 
 ## Supplementary explanation
@@ -17,6 +19,7 @@ code templates and examples in python, currently mainly used in common algorithm
 
 3. Code templates is written by python with some pseudo code, so I use `self` and add stub functions to pass compiler's check
   you should replace them with your particular logic according to the comments.
+  
 
 
 ## Who is it for?
@@ -29,6 +32,13 @@ under construction
 
 under construction
 
+Currently, it is mainly about algorithm and advanced python coding tricks. Maybe I will add other domain code templates, such as machine-learning, nlp.
+
+## License
+
+Feel free to use, copy, modify, merge, publish, just please add a reference. 
+If it helps you or you like it, you can star or share it. thanks.
+I'm glad if you want to contribute to make it better.
 
 
 
@@ -49,3 +59,8 @@ under construction
 * https://time.geekbang.org/course/intro/130
 * https://time.geekbang.org/column/intro/126
 * https://www.wikipedia.org/
+
+
+# Contact
+
+recnac@foxmail.com
