@@ -37,7 +37,6 @@ Besides, it is popular, and I'm the big fan of this language myself.
 
 
 ## Who is this for?
-
 1. If you will have interviews soon, and plan to review data structure & algorithm. You can review by these summary, and improve practical skills by typical examples, from easy to hard.
 2. If you are a leetcoder, you want to practice your weak topics, and have no idea to which problems to solve, here is well classified and provides the most typical examples. Or, you are too tired to find a fastest and elegant answer in discussion, here can save your time.
 3. If you are a python beginner, and want to enhance your advanced pythonic skills, you can take a look at python tricks. Hope you will find useful and elegant tricks here. 
@@ -54,7 +53,7 @@ Currently, it is mainly about data structure & algorithm and advanced python cod
 
 Feel free to use, copy, modify, merge, publish, just add a reference, please. 
 
-If it helps you or you like it, you can star or share it. thanks.
+If it helps you or you like it, you can star or share it. thanks : )
 
 I'm glad if you want to contribute to make it better.
 
@@ -81,6 +80,5 @@ I'm glad if you want to contribute to make it better.
 
 
 
-# Contact
-
+## Contact
 recnac@foxmail.com
