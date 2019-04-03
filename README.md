@@ -4,7 +4,17 @@
 
 ## Description
 
-Code templates and examples in python3, currently mainly used in common algorithms.
+Code templates and examples in Python3, currently including common **data structure** & **algorithms** and **python tricks**.
+
+I have summarized general code templates for particular algorithms, and add most typical examples to help make better use of it.
+
+All the examples come from [LeetCode](https://www.leetcode.com), and I have attached the problem id and brief description.
+
+
+
+***"Stop Trying to Reinvent the Wheel"***
+
+So I try my best to find the commonality in problems, solutions, and codes. When I study, I have summarized templates for future use. First I do it for myself, and now I glad to share to people who also need it.
 
 
 
@@ -22,14 +32,16 @@ Code templates and examples in python3, currently mainly used in common algorith
 
 ## Why Python?
 With the help of Python's advanced language features and dynamic type, it can let us ignore redundant grammar, and totally focus on algorithm and logic.
-In addition, it is popular, and I'm the fan of this language myself.
+In addition, it is popular, and I'm the big fan of this language myself.
 
 
 
 
-## Who is it for?
+## Who is this for?
 
-under construction
+1. If you will have interviews soon, and plan to review data structure & algorithm. You can review by these summary, and improve practical skills by typical examples, from easy to hard.
+2. If you are a leetcoder, you want to practice your weak topics, and have no idea to which problems to solve, here is well classified and provides the most typical examples. Or, you are too tired to find a fastest and elegant answer in discussion, here can save your time.
+3. If you are a python beginner, and want to learn more python advanced skills, you can take a look at python tricks. Hope you will find useful and elegant tricks here. 
 
 
 
@@ -48,11 +60,9 @@ I'm glad if you want to contribute to make it better.
 
 
 ## Thanks to
-* All the examples come from [LeetCode](https://www.leetcode.com), and I have attached the problem id and brief description.
+* Thanks to all good problems from LeetCode. In addition, LeetCode has a great OJ platform, and really suitable to do functional and performance test.
 
-* LeetCode has a great OJ platform, and really suitable to do functional and performance test.
-
-* Many templates and tricks are enlightened by discussion in LeetCode, thanks to all the coding masters.
+* Many templates and tricks are enlightened by discussion in LeetCode, thanks to all the code masters.
 
 * Special thanks to [Stephan Pochmann](https://leetcode.com/stefanpochmann/), really learned a lot from him.
 
@@ -61,14 +71,12 @@ I'm glad if you want to contribute to make it better.
 ## Reference
 
 * https://leetcode.com/problemset/all/
-
 * https://leetcode.com/discuss/
-
 * https://time.geekbang.org/course/intro/130
-
 * https://time.geekbang.org/column/intro/126
-
 * https://www.wikipedia.org/
+* https://stackoverflow.com/
+* <https://github.com/brennerm/PyTricks>
 
 
 
