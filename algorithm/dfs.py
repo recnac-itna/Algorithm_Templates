@@ -1,7 +1,7 @@
 # Deep-first search is traversing or searching tree or graph data structures, including graph-like solution space.
 # it starts at the root node and explores as far as possible along each branch before backtracking.
 #
-# Time:  O(V+E)
+# Time:  O(V+E)     V: vertex, E: edges
 # Space: O(V)
 
 

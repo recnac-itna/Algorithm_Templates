@@ -1,4 +1,4 @@
-# refer to https://time.geekbang.org/course/detail/130-42710
+# A common method of simplification is to divide a problem into subproblems of the same type.
 
 
 # param such as current path, result, visited set
@@ -34,4 +34,3 @@ def add_interval(new_interval, intervals):
             intervals[-1][1] = new_interval[1]
     else:
         intervals.append(new_interval)
-
