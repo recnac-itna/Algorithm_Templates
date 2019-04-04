@@ -37,9 +37,10 @@ Besides, it is popular, and I'm the big fan of this language myself.
 
 
 ## Who is this for?
-1. If you will have interviews soon, and plan to review data structure & algorithm. You can review by these summary, and improve practical skills by typical examples, from easy to hard.
-2. If you are a leetcoder, you want to practice your weak topics, and have no idea to which problems to solve, here is well classified and provides the most typical examples. Or, you are too tired to find a fastest and elegant answer in discussion, here can save your time.
-3. If you are a python beginner, and want to enhance your advanced pythonic skills, you can take a look at python tricks. Hope you will find useful and elegant tricks here. 
+1. If you will have interviews soon, and plan to review data structure & algorithm. You can review by these summary, and improve **practical** skills by typical examples.
+2. If you want to study algorithm by **practice**, here you can understand the key point in templates, and practice the examples from easy to hard, to understand it deeper.
+3. If you are a LeetCoder, you want to practice your weak topics, and have no idea to which problems to solve, here is well classified and provides the most typical examples. Or, you are too tired to find a fastest and elegant answer in discussion, here can save your time.
+4. If you are a python beginner, and want to enhance your advanced pythonic skills, you can take a look at python tricks. Hope you will find useful and elegant tricks here. 
 
 
 
