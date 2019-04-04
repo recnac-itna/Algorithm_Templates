@@ -1,4 +1,4 @@
-# queue operation: push, pop, top
+# queue common operation: push, pop, top
 # queue is widely used in BFS
 # FIFO: First In, First Out
 #

@@ -90,6 +90,23 @@ def guessNumber1(n):
     return bisect.bisect_right(C(), -1, 1, n)
 
 
+# [683] https://leetcode.com/problems/k-empty-slots/
+# Also given an integer k, you need to output in which day there exists two flowers in the status of blooming
+def kEmptySlots(flowers: 'List[int]', k: int) -> int:
+    blooms = []
+    for i, f in enumerate(flowers):
+        idx = bisect.bisect_left(blooms, f)
+        if idx > 0:
+            if f - blooms[idx - 1] - 1 == k:
+                return i + 1
+        if idx < len(blooms):
+            if blooms[idx] - f - 1 == k:
+                return i + 1
+        # has already done binary search
+        blooms.insert(idx, f)
+    return -1
+
+
 # [635] https://leetcode.com/problems/design-log-storage-system
 # Design a log storage system to implement the following functions:
 # 1. Given a log's unique id and timestamp, store the log in your storage system.

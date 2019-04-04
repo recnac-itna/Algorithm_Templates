@@ -1,15 +1,18 @@
-# stack operation: push, pop, top
+# stack common operation: push, pop, top
 # stack is used in pairs, maintain extreme value
 #
-# FILO: First in, Last Out
+# FILO: First In, Last Out
 # Time:  O(1)
 # Space: O(n)
 
 
 # sequence stack based on list
 def stack_operations():
-    # initialize
+    # initialization
     stack = []
+
+    # size of stack
+    size = len(stack)
 
     # push
     stack.append(1)
@@ -21,3 +24,4 @@ def stack_operations():
 
         # pop
         stack.pop()
+
