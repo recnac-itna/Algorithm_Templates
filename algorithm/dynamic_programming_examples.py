@@ -132,6 +132,9 @@ def longestLine2(M: 'List[List[int]]') -> int:
 
 # [188] https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/
 # Design an algorithm to find the maximum profit. You may complete at most k transactions.
+#
+# stock problems can reference to this:
+# https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/discuss/108870/Most-consistent-ways-of-dealing-with-the-series-of-stock-problems
 def maxProfit(k: int, prices: 'List[int]') -> int:
     if not prices:
         return 0

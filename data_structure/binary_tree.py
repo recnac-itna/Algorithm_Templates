@@ -89,11 +89,12 @@ traverse binary tree iteratively
 '''
 
 
+# There are too many version to traverse iteratively, just choose the one you like it.
 # pre-order: root->left->right
 def preorder_traversal_iteratively(self, root: 'TreeNode'):
     if not root:
         return []
-    stack, ans = [root], []
+    stack = [root]
     while stack:
         root = stack.pop()
         '''
@@ -127,8 +128,11 @@ def inorder_traversal_iteratively(self, root: 'TreeNode'):
         root = root.right
 
 
+# here I choose to not use
 # post-order: left->right->root
 def postorder_traversal_iteratively(self, root: 'TreeNode'):
+    if not root:
+        return []
     stack = [root]
     # used to record whether left or right child has been visited
     last = None
