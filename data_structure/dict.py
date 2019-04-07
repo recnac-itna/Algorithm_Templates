@@ -1,11 +1,15 @@
+# a data structure that implements an associative array abstract data type, a structure that can map keys to values
 # variation: defaultdict, Counter, OrderedDict
+#
+# Time:  O(1)
+# Space: O(n)
 from collections import defaultdict
 from collections import Counter
 from collections import OrderedDict
 from operator import itemgetter
 
 
-def dict_operation():
+def dict_operations():
     '''
     dict common operations
     '''
