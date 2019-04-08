@@ -1,4 +1,4 @@
-# A common method of simplification is to divide a problem into subproblems of the same type.
+# Recursion is a common method of simplification is to divide a problem into subproblems of the same type.
 
 
 # param such as current path, result, visited set

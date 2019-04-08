@@ -29,4 +29,5 @@ def dynamic_programming_template_with_example(word1, word2):
                 dp[cur][j + 1] = 1 + min(dp[cur ^ 1][j], dp[cur ^ 1][j + 1], dp[cur][j])
         # switch between two states
         cur ^= 1
+    # return the last state as result
     return dp[cur ^ 1][-1]

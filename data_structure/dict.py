@@ -1,5 +1,5 @@
 # a data structure that implements an associative array abstract data type, a structure that can map keys to values
-# variation: defaultdict, Counter, OrderedDict
+# variations: defaultdict, Counter, OrderedDict
 #
 # Time:  O(1)
 # Space: O(n)

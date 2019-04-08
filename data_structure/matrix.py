@@ -1,5 +1,5 @@
 # common operations of matrix with examples
-# here matrix just represents 2-dimension array, not including matrix operation
+# here matrix just represents 2-dimension array, not including matrix operation in math
 from collections import defaultdict
 
 '''

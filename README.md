@@ -59,7 +59,7 @@ Currently, it is mainly about data structure & algorithm and advanced python cod
 
 ## License
 
-Feel free to use, copy, modify, merge, publish, just add a reference, please. 
+Feel free to use, copy, modify, merge or publish. just add a reference, please. 
 
 If it helps you or you like it, you can star or share it. thanks : )
 
