@@ -135,12 +135,12 @@ def findCelebrity(n):
 
     candidate = 0
     # if there is a celebrity, he/she must be the "maximum" of the n people
-    # 找到唯一可能的候选者
+    # find the only one who is a candidate possibly
     for i in range(1, n):
         if knows(candidate, i):
             candidate = i
 
-    # candidate以后的关系已经在上一个循环中检测过了
+    # the relation after candidate has been checked in previous loop
     for i in range(candidate):
         if knows(candidate, i):
             return -1
