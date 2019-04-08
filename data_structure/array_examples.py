@@ -24,6 +24,31 @@ def peakIndexInMountainArray2(A):
     return lo
 
 
+# [220] https://leetcode.com/problems/contains-duplicate-iii/
+# Given an array of integers, find out whether there are two distinct indices i and j in the array such that the
+# absolute difference between nums[i] and nums[j] is at most t and the absolute difference between i and j is at most k.
+#
+# bucket sort solution
+# suppose we have consecutive buckets covering the range of nums with each bucket a width of (t+1).
+# if there are two item with difference <= t, one of the two will happen:
+# (1) the two in the same bucket
+# (2) the two in neighbor buckets
+def containsNearbyAlmostDuplicate(nums: 'List[int]', k: int, t: int) -> bool:
+    if t < 0: return False
+    lookup = {}
+    for i in range(len(nums)):
+        b_idx = nums[i] // (t + 1)
+        if b_idx in lookup:
+            return True
+        if b_idx - 1 in lookup and abs(nums[i] - lookup[b_idx - 1]) < t + 1:
+            return True
+        if b_idx + 1 in lookup and abs(nums[i] - lookup[b_idx + 1]) < t + 1:
+            return True
+        lookup[b_idx] = nums[i]
+        if i >= k: del lookup[nums[i - k] // (t + 1)]
+    return False
+
+
 # [31] https://leetcode.com/problems/next-permutation/
 # Implement next permutation, which rearranges numbers into the lexicographically next greater permutation of numbers.
 def nextPermutation(nums: 'List[int]') -> None:
