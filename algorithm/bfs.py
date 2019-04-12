@@ -8,9 +8,7 @@ from collections import deque
 
 # iteration version, using deque
 def bfs_iteratively_by_queue(self, start, target=None):
-    queue, visited = deque(), set()
-    queue.append([start])
-    visited.add(start)
+    queue, visited = deque([start]), {start}
 
     while queue:
         node = queue.popleft()
@@ -35,8 +33,7 @@ def bfs_iteratively_by_queue(self, start, target=None):
 # iteration version, using list, pythonic-style
 # conciser but more memory, mainly used when you want to collect the whole list
 def bfs_iteratively_by_list(self, start, target=None):
-    node_list, visited = [start], set()
-    visited.add(start)
+    node_list, visited = [start], {start}
 
     # append while traversing
     for node in node_list:
