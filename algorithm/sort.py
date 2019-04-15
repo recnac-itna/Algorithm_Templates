@@ -4,13 +4,30 @@
 # currently include:
 # quick, merge, insert, bubble, selection, heap, shell, bucket, counting, radix, topological
 #
-# comparison based vs non-comparison based (radix, bucket, counting)
-#
-# stable vs unstable (selection, quick, heap, shell)
+# constant space vs extra space (merge O(n), counting O(k), bucket O(n+k), radix O(n+k))
 #
 # in place vs out place (merge, counting, bucket, radix)
 #
-# constant space vs extra space (merge O(n), counting O(k), bucket O(n+k), radix O(n+k))
+# stable vs unstable (selection, quick, heap, shell)
+#
+# comparison based vs non-comparison based (radix, bucket, counting)
+#
+# comparison of counting, bucket and radix sort: all use bucket idea
+# counting sort:  store the single key in bucket
+# bucket sort:    store a range in bucket
+# radix sort:     store each part of element in bucket
+
+# sort      average     best        worst       space   place       stable      comparison
+# bubble    O(n^2)      O(n)        O(n^2)      O(1)    in-place    stable      comparison
+# selection O(n^2)      O(n^2)      O(n^2)      O(1)    in-place    unstable    comparison
+# insert    O(n^2)      O(n)        O(n^2)      O(1)    in-place    stable      comparison
+# shell     O(nlogn)    O(nlogn^2)  O(nlogn^2)  O(1)    in-place    unstable    comparison
+# merge     O(nlogn)    O(nlogn)    O(nlogn)    O(n)    out-place   stable      comparison
+# quick     O(nlogn)    O(nlogn)    O(n^2)      O(logn) in-place    unstable    comparison
+# heap      O(nlogn)    O(nlogn)    O(nlogn)    O(1)    in-place    unstable    comparison
+# counting  O(n+k)      O(n+k)      O(n+k)      O(k)    out-place   stable      non-comparison
+# bucket    O(n+k)      O(n+k)      O(n^2)      O(n+k)  out-place   stable      non-comparison
+# radix     O(nk)       O(nk)       O(nk)       O(n+k)  out-place   stable      non-comparison
 
 import random
 import time
@@ -19,8 +36,8 @@ from collections import defaultdict
 
 '''
 quick sort 
-avg: O(nlogn), best: O(nlogn), worst: O(n^2), space: O(logn), in-place, unstable
-fastest in large-scale, out-of-order seq, divide & conquer
+avg: O(nlogn), best: O(nlogn), worst: O(n^2), space: O(logn), in-place, unstable, comparison
+fastest in large-scale and out-of-order data, divide & conquer
 '''
 
 
@@ -54,11 +71,12 @@ def partition(arr, lo, hi):
 
 '''
 merge sort
-divide & conquer, extra Space O(n), stable
+avg: O(nlogn), best: O(nlogn), worst: O(nlogn), space: O(n), out-place, stable, comparison
+divide & conquer
 '''
 
 
-# the version with a fixed temp arr
+# the version with a fixed temp array
 def merge_sort(arr):
     merge_sort_rec(arr, 0, len(arr) - 1, [0] * len(arr))
 
@@ -135,6 +153,7 @@ def merge1(left, right):
     return res
 
 
+# more pythonic but slower
 def merge2(left, right):
     res = []
     while left and right:
@@ -158,8 +177,8 @@ def merge3(left, right):
 
 '''
 insert sort
-O(n^2)
-fast when small-scale and data almost sort
+avg: O(n^2), best: O(n), worst: O(n^2), space: O(1), in-place, stable, comparison
+fast in small-scale and almost sorted data 
 '''
 
 
@@ -175,7 +194,7 @@ def insert_sort(arr):
 
 '''
 bubble sort
-O(n^2)
+avg: O(n^2), best:O(n), worst: O(n^2), space:O(1), in-place, stable, comparison
 optimization: 
 1. flag whether swap last round, if not, end sort
 2. flag the last swap place, [last_swap, j] has been sorted, just skip it.
@@ -206,6 +225,8 @@ def bubble_sort2(arr):
 
 '''
 selection sort
+avg: O(n^2), best: O(n^2), worst: O(n^2), space: O(1), in-place, unstable, comparison
+most stable in time cost, always O(n^2), and easy understanding, used in small scale data
 '''
 
 
@@ -220,7 +241,8 @@ def selection_sort(arr):
 
 '''
 heap sort
-unstable
+avg: O(nlogn), best: O(nlogn), worst: O(nlogn), space: O(1), in-place, unstable, comparison
+not only a sort algorithm, this structure (priority queue) can do more thing.
 '''
 
 
@@ -256,6 +278,7 @@ def heap_adjust(arr, i, n):
 
 '''
 shell sort
+avg: O(nlogn), best: O(nlogn^2), worst: O(nlogn^2), space: O(1), in-place, unstable, comparison
 improvement of insertion sort
 '''
 
@@ -278,6 +301,8 @@ def shell_sort(arr):
 
 '''
 counting sort
+avg: O(n+k), best:O(n+k), worst:O(n+k), space:O(k), out-place, stable, non-comparison
+relatively concentrated values
 '''
 
 
@@ -298,7 +323,8 @@ def counting_sort(arr):
 
 '''
 bucket sort
-improvement of counting sort
+avg: O(n+k), best:O(n+k), worst:O(n^2), space:O(n+k), out-place, stable, non-comparison
+improvement of counting sort, usually used with hash 
 '''
 DEFAULT_BUCKET_SIZE = 5
 
@@ -351,6 +377,8 @@ def re_hashing(i, code):
 
 '''
 radix sort
+avg: O(nk), best:O(nk), worst:O(nk), space:O(n+k), out-place, stable, non-comparison
+improvement of counting sort
 '''
 
 
@@ -386,6 +414,8 @@ def radix_sort(arr):
 
 '''
 topological sort
+in a directed graph, a linear ordering of its vertices such that for every directed edge uv from vertex u to vertex v, 
+u comes before v in the ordering. 
 '''
 
 GRAY, BLACK = 0, 1
