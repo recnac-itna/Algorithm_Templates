@@ -28,7 +28,7 @@ def bfs_iteratively_by_queue(self, start, target=None):
         for next_node in node.get_successors():
             if next_node not in visited:
                 queue.append(next_node)
-                
+
 # alternative iteration version from leetcode, use deque
 # [Explore - LeetCode](https://leetcode.com/explore/learn/card/queue-stack/231/practical-application-queue/1372/)
 
@@ -53,7 +53,7 @@ def bfs_iteratively_by_queue_2(self, start, target=None):
                 '''
                 self.process_target_logic(target)
                 return 
-        #strech to collect cur_node's sucessors
+        #strech to collect cur_node's successors
         for next_node in cur_node.get_successors():
             if next_node not in visited:
                 queue.append(next_node)

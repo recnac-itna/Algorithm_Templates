@@ -23,6 +23,7 @@ def minDepth(root: 'TreeNode') -> int:
 
 # [279] https://leetcode.com/problems/perfect-squares/
 # given a positive integer n, find the least number of perfect square numbers
+#DFS from 0 to n 
 def numSquares(n: int) -> int:
     nums = [i * i for i in range(1, int(n ** 0.5) + 1)]
     queue = deque([(0, 0)])
