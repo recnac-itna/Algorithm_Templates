@@ -12,7 +12,7 @@ def bfs_iteratively_by_queue(self, start, target=None):
 
     while queue:
         node = queue.popleft()
-        visited.add(node)
+        visited.add(node) #add [root] twice
         '''
         process current node logic here
         '''
@@ -28,6 +28,38 @@ def bfs_iteratively_by_queue(self, start, target=None):
         for next_node in node.get_successors():
             if next_node not in visited:
                 queue.append(next_node)
+                
+# alternative iteration version from leetcode, use deque
+# [Explore - LeetCode](https://leetcode.com/explore/learn/card/queue-stack/231/practical-application-queue/1372/)
+
+def bfs_iteratively_by_queue_2(self, start, target=None):
+    #step as a log to monitor and record the process.
+    step = -1
+    queue, visited = deque([start]), {start}
+
+
+    while queue:
+        #Use step as an explicit reminder.
+        step += 1
+        size = len(queue)
+
+        for _ in range(size):
+            #get the current node and remove it from queue
+            cur_node = queue.popleft()         
+            # target is optional
+            if cur_node == target:
+                '''
+                reach the goal and terminate
+                '''
+                self.process_target_logic(target)
+                return 
+        #strech to collect cur_node's sucessors
+        for next_node in cur_node.get_successors():
+            if next_node not in visited:
+                queue.append(next_node)
+                visited.add(next_node)
+
+    return -1 #Failure 
 
 
 # iteration version, using list, pythonic-style
