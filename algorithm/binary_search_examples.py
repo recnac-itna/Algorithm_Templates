@@ -23,6 +23,7 @@ def is_perfect_square(num: 'int') -> 'bool':
 # given a target value to search. If found in the array return its index,
 #
 # variation with rotated sort
+# other clever way: https://leetcode.com/problems/search-in-rotated-sorted-array/discuss/14435/Clever-idea-making-it-simple
 def search_in_rotated_sorted_array(nums: 'List[int]', target: int) -> int:
     lo, hi = 0, len(nums) - 1
     while lo <= hi:
@@ -46,6 +47,21 @@ def search_in_rotated_sorted_array(nums: 'List[int]', target: int) -> int:
             else:
                 hi = mid - 1
     return -1
+
+
+# https://leetcode.com/problems/search-in-rotated-sorted-array/discuss/14419/Pretty-short-C%2B%2BJavaRubyPython
+# So I have the three checks (nums[0] <= target), (target <= nums[i]) and (nums[i] < nums[0]), and I want to know
+# whether exactly two of them are true. They can't all be true or all be false (check it), so I just need to
+# distinguish between "two true" and "one true". Parity is enough for that, so instead of adding them I xor them
+def search_in_rotated_sorted_array2(nums, target):
+    lo, hi = 0, len(nums) - 1
+    while lo < hi:
+        mid = (lo + hi) / 2
+        if (nums[0] > target) ^ (nums[0] > nums[mid]) ^ (target > nums[mid]):
+            lo = mid + 1
+        else:
+            hi = mid
+    return lo if target in nums[lo:lo + 1] else -1
 
 
 # [374] https://leetcode.com/problems/guess-number-higher-or-lower/

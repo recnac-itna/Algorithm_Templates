@@ -13,6 +13,9 @@ def dict_operations():
     '''
     dict common operations
     '''
+    # keys must be hashable (constant __hash__ and comparable via __eq__)
+    # based on hash table -> O(1) for insertion, deletion, update, lookup
+
     # initialization
     dict1 = {'a': 2, 'b': 1, 'c': 1}
 
@@ -51,6 +54,8 @@ def dict_operations():
     counter.elements()
     # list the n most common elements
     counter.most_common(2)
+    # update
+    counter.update({'a': 1, 'b': 2})
 
     # add
     Counter('abbb') + Counter('bcc')
@@ -68,4 +73,3 @@ def dict_operations():
     order_dict = OrderedDict(dict1)
     # update order to front or back
     order_dict.move_to_end('a', last=False)
-

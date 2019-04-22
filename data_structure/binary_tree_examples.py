@@ -56,6 +56,29 @@ def isBalanced(root):
     return dfs(root) != -1
 
 
+# [100] https://leetcode.com/problems/same-tree/discuss/32729/Shortest%2Bsimplest-Python
+# check if they are the same or not
+#
+# proper way
+def isSameTree1(p, q):
+    if p and q:
+        return p.val == q.val and isSameTree1(p.left, q.left) and isSameTree1(p.right, q.right)
+    return p is q
+
+
+# tupleify way:
+def isSameTree2(p, q):
+    def t(n):
+        return n and (n.val, t(n.left), t(n.right))
+
+    return t(p) == t(q)
+
+
+# map way
+def isSameTree3(p, q):
+    return p and q and p.val == q.val and all(map(isSameTree3, (p.left, p.right), (q.left, q.right))) or p is q
+
+
 # [314] https://leetcode.com/problems/binary-tree-vertical-order-traversal
 # Given a binary tree, return the vertical order traversal of its nodes' values. (ie, from top to bottom, column by column).
 #
@@ -142,6 +165,14 @@ def invertTree3(root: 'TreeNode') -> 'TreeNode':
             # accept push None node to stack, in order to deal with edge case together
             stack.append(node.left)
             stack.append(node.right)
+    return root
+
+
+# [235] https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
+# find the lowest common ancestor (LCA) of two given nodes in the BST.
+def lowestCommonAncestor(root, p, q):
+    while (root.val - p.val) * (root.val - q.val) > 0:
+        root = (root.left, root.right)[p.val > root.val]
     return root
 
 
@@ -368,6 +399,7 @@ def inorderSuccessor(root, p):
 
     dfs(root, p)
     return res
+
 
 # [669] https://leetcode.com/problems/trim-a-binary-search-tree/
 # trim the tree so that all its elements lies in [L, R]

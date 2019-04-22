@@ -95,6 +95,8 @@ def mergeTwoLists3(a, b):
 # Given a linked list, swap every two adjacent nodes and return its head.
 #
 # Since the head doesn't have a previous node, I just use self instead.
+# To go from "pre -> a -> b -> b.next" to "pre -> b -> a -> b.next", we need to change those three references.
+# Instead of thinking about in what order I change them, I just change all three at once.
 def swapPairs(self, head):
     pre, pre.next = self, head
     while pre.next and pre.next.next:

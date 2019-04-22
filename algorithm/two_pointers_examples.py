@@ -9,8 +9,30 @@ old & new state: old, new = new, cur_result
 # determine the maximum amount of money you can rob tonight without adjacent houses
 def rob(nums: 'List[int]') -> 'int':
     last, now = 0, 0
-    for i in nums: last, now = now, max(last + i, now)
+    for i in nums:
+        last, now = now, max(last + i, now)
     return now
+
+
+# [21] https://leetcode.com/problems/merge-two-sorted-lists/
+# Merge two sorted linked lists and return it as a new list.
+#
+# first make sure a starts smaller, use its head as result, and merge the remainders behind it.
+def mergeTwoLists1(a, b):
+    if a and b:
+        if a.val > b.val:
+            a, b = b, a
+        a.next = mergeTwoLists1(a.next, b)
+    return a or b
+
+
+# first make sure that a is the "better" one (meaning b is None or has larger/equal value). Then merge the remainders behind a.
+def mergeTwoLists2(a, b):
+    if not a or b and a.val > b.val:
+        a, b = b, a
+    if a:
+        a.next = mergeTwoLists2(a.next, b)
+    return a
 
 
 # [904] https://leetcode.com/problems/fruit-into-baskets/
@@ -21,7 +43,8 @@ def totalFruit(tree):
     for c in tree:
         cur = cur + 1 if c in (a, b) else count_b + 1
         count_b = count_b + 1 if c == b else 1
-        if b != c: a, b = b, c
+        if b != c:
+            a, b = b, c
         res = max(res, cur)
     return res
 

@@ -26,7 +26,7 @@ def scoreOfParentheses(S):
             stack.append(0)
         else:
             last = stack.pop()
-            add = last and 2 * last or 1    # if last == 0, return 1
+            add = last and 2 * last or 1  # if last == 0, return 1
             if stack:
                 stack[-1] += add
             else:
@@ -67,6 +67,18 @@ def largestRectangleArea(heights: 'List[int]') -> 'int':
                 res = max(res, heights[top] * (i - s[-1] - 1))
         s.append(i)
     return res
+
+
+# [439] https://leetcode.com/problems/ternary-expression-parser/
+# Given a string representing arbitrarily nested ternary expressions, calculate the result of the expression.
+# You can always assume that the given expression is valid and only consists of digits 0-9, ?, :, T and F
+def parseTernary(expression):
+    stack = []
+    for c in reversed(expression):
+        stack.append(c)
+        if stack[-2:-1] == ['?']:
+            stack[-5:] = stack[-3 if stack[-1] == 'T' else -5]
+    return stack[0]
 
 
 # [232] https://leetcode.com/problems/implement-queue-using-stacks/
@@ -139,7 +151,7 @@ class MaxStack:
     def push(self, x: 'int') -> 'None':
         self.stack.append(x)
         if len(self.max_stack) == 0 or x >= self.max_stack[-1][0]:
-            self.max_stack.append((x, len(self.stack)-1))
+            self.max_stack.append((x, len(self.stack) - 1))
 
     def pop(self) -> 'int':
         if self.max_stack[-1][1] == len(self.stack) - 1:

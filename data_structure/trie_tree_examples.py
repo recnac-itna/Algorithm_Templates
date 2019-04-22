@@ -105,7 +105,7 @@ class AutocompleteSystem:
 
             for c in trie:
                 if c != '#' and c != '*':
-                    # cache prioirty queue here
+                    # cache priority queue here
                     cur_heap = dfs(trie[c])
                     for item in cur_heap:
                         if len(heap) < self.size:

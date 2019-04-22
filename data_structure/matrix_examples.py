@@ -69,6 +69,19 @@ def generateMatrix2(n):
     return M
 
 
+# [695] https://leetcode.com/problems/max-area-of-island/
+# Find the maximum area of an island in the given 2D array.
+#
+# complex number & dict pop, map, sum
+def maxAreaOfIsland(grid):
+    grid = {i + j * 1j: val for i, row in enumerate(grid) for j, val in enumerate(row)}
+
+    def area(z):
+        return grid.pop(z, 0) and 1 + sum(area(z + 1j ** k) for k in range(4))
+
+    return max(map(area, set(grid)))
+
+
 # [422] https://leetcode.com/problems/valid-word-square/
 # Given a sequence of words, check whether it forms a valid word square.
 #

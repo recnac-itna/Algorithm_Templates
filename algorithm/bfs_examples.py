@@ -21,6 +21,29 @@ def minDepth(root: 'TreeNode') -> int:
             queue.append((height + 1, node.right))
 
 
+# [513] https://leetcode.com/problems/find-bottom-left-tree-value/
+# Given a binary tree, find the leftmost value in the last row of the tree.
+#
+# Doing BFS right-to-left means we can simply return the last node's value and don't have to keep track of the first
+# node in the current row or even care about rows at all.
+def findLeftMostNode(root):
+    queue = [root]
+    for node in queue:
+        queue += filter(None, (node.right, node.left))
+    return node.val
+
+
+# [515] https://leetcode.com/problems/find-largest-value-in-each-tree-row/
+# find the largest value in each row of a binary tree.
+def findValueMostElement(root):
+    maxes = []
+    row = [root]
+    while any(row):
+        maxes.append(max(node.val for node in row))
+        row = [kid for node in row for kid in (node.left, node.right) if kid]
+    return maxes
+
+
 # [279] https://leetcode.com/problems/perfect-squares/
 # given a positive integer n, find the least number of perfect square numbers
 def numSquares(n: int) -> int:

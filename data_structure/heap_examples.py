@@ -22,6 +22,26 @@ def kClosest(points: 'List[List[int]]', K: int) -> 'List[List[int]]':
     return [h[1] for h in heap]
 
 
+# [313] https://leetcode.com/problems/super-ugly-number/
+# Write a program to find the nth super ugly number.
+# Super ugly numbers are positive numbers whose all prime factors are in the given prime list primes of size k.
+#
+# generators on a heap, use merge
+def nthSuperUglyNumber(self, n, primes):
+    uglies = [1]
+
+    def gen(prime):
+        for ugly in uglies:
+            yield ugly * prime
+
+    merged = heapq.merge(*map(gen, primes))
+    while len(uglies) < n:
+        ugly = next(merged)
+        if ugly != uglies[-1]:
+            uglies.append(ugly)
+    return uglies[-1]
+
+
 # [23] https://leetcode.com/problems/merge-k-sorted-lists/
 # Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
 #

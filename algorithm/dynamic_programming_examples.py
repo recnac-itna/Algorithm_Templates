@@ -79,6 +79,33 @@ def minDistance(word1: 'str', word2: 'str') -> 'int':
     return dp[cur ^ 1][-1]
 
 
+# [375] https://leetcode.com/problems/guess-number-higher-or-lower-ii/
+# However, when you guess a particular number x, and you guess wrong, you pay $x. You win the game when you guess the number I picked.
+#
+# Bottom-up dynamic programming
+def getMoneyAmount(n):
+    need = [[0] * (n + 1) for _ in range(n + 1)]
+    for lo in range(n, 0, -1):
+        for hi in range(lo + 1, n + 1):
+            need[lo][hi] = min(x + max(need[lo][x - 1], need[x + 1][hi])
+                               for x in range(lo, hi))
+    return need[1][n]
+
+
+# Top-down with memoization
+def getMoneyAmount(n):
+    class Need(dict):
+        def __missing__(self, miss):
+            lo, hi = miss
+            if lo >= hi:
+                return 0
+            ret = self[lo, hi] = min(x + max(self[lo, x - 1], self[x + 1, hi])
+                                     for x in range(lo, hi))
+            return ret
+
+    return Need()[1, n]
+
+
 # [562] https://leetcode.com/problems/longest-line-of-consecutive-one-in-matrix/
 # find the longest line of consecutive one in the matrix. The line could be horizontal, vertical, diagonal or anti-diagonal.
 #
