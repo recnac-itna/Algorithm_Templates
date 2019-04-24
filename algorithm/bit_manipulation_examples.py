@@ -48,12 +48,11 @@ def getSum(a, b):
 # Given an array containing n distinct numbers taken from 0, 1, 2, ..., n, find the one that is missing from the array.
 #
 # bit manipulate,  a^b^b = a
-class Solution1:
-    def missingNumber(self, nums):
-        res = 0
-        for i, e in enumerate(nums):
-            res = res ^ i ^ e
-        return res ^ len(nums)
+def missingNumber(nums):
+    res = 0
+    for i, e in enumerate(nums):
+        res = res ^ i ^ e
+    return res ^ len(nums)
 
 
 '''

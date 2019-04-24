@@ -21,7 +21,7 @@ def traverse_neighbor(self, matrix):
                     '''
                     neighbor logic process
                     '''
-                    self.procee_logic(matrix[I][J])
+                    self.process_logic(matrix[I][J])
 
 
 # use one-dimensional dict, and access neighbors by complex number
@@ -33,7 +33,7 @@ def traverse_neighbor_by_complex(self, board):
             '''
             neighbor logic process
             '''
-            self.procee_neighor_logic(board.get(z + 1j ** k))
+            self.process_neighor_logic(board.get(z + 1j ** k))
 
 
 '''
@@ -146,8 +146,7 @@ def generate_spiral_matrix(n):
 # |4 5 6|  =>  |5 8|  =>  |5 4|  =>  |5|
 # |7 8 9|      |4 7|
 def traverse_spiral_order(matrix):
-    # [*...] = list()
-    # [*zip(*arr)]转置矩阵的方法，and返回右值
+    # [*...] = list(), [*zip(*matrix)]: transpose matrix
     return matrix and [*matrix.pop(0)] + traverse_spiral_order([*zip(*matrix)][::-1])
 
 
