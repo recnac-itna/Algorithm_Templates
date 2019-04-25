@@ -1,10 +1,10 @@
-# Code Templates
+# Algorithm Templates
 
 
 
 ## Description
 
-Code templates and examples in Python3, currently including common **data structure** & **algorithms** and **python tricks**.
+Templates and examples in Python3, including common **data structure** & **algorithms**.
 
 I have collected and summarized general code templates for particular algorithms, and add most typical examples to help make better use of it. All the examples come from [LeetCode](https://www.leetcode.com), and I have attached the problem id and brief description.
 
@@ -12,7 +12,9 @@ I have collected and summarized general code templates for particular algorithms
 
 ***"Stop Trying to Reinvent the Wheel"***
 
-So I try my best to find the commonality in problems, solutions and codes. When I study, I have summarized templates for future use. First I do it for myself, and now I glad to share to people who also need it.
+So I try my best to find the commonality in problems, solutions and codes. When I study, I have summarized templates for future use. 
+
+First I intended to use it for myself, and now I realize maybe it is good enough to share with people who also need it.
 
 
 
@@ -20,7 +22,7 @@ So I try my best to find the commonality in problems, solutions and codes. When 
 ## Supplementary explanation
 1. It is written in **Python3**, but easy to extend to other languages, such as **Java**, **C++**. Just replace the python syntactic sugar and advanced tricks, maybe just less concise.
 
-2. With my limited time and ability, here only covers **common** algorithms and python tricks. Almost suitable for interview, but insufficient for competition.
+2. With my limited time and ability, here only covers **common** data structure & algorithms. Almost suitable for interview, but insufficient for competition.
 
 3. I have tried my best to collect and summarize the most general and best-practice templates in particular area, but this version may not be the best solution. Or, it's really the best performance and most concise solution, but it's not the suitable for you. Within acceptable performance, **it is the best practice for you when you use it most conveniently**. 
 
@@ -29,7 +31,9 @@ So I try my best to find the commonality in problems, solutions and codes. When 
 
 
 ## Why Python?
-With the help of Python's advanced language features and dynamic type, it can let us ignore redundant grammar, and totally focus on algorithm and logic.
+***"life is short, you need python"***
+
+With the help of Python's advanced features, it can let us ignore redundant grammar, and totally focus on algorithm and logic.
 
 Besides, it is popular, and I'm the big fan of this language myself.
 
@@ -39,25 +43,19 @@ Besides, it is popular, and I'm the big fan of this language myself.
 ## Who is this for?
 1. If you will have interviews soon, and plan to review data structure & algorithm. You can review by these summary, and improve **practical** skills by typical examples.
 2. If you want to study algorithm by **practice**, here you can understand the key point in templates, and practice the examples from easy to hard, to understand it deeper.
-3. If you are a LeetCoder, you want to practice your weak topics, and have no idea to which problems to solve, here is well classified and provides the most typical examples. Or, you are too tired to find a fastest and elegant answer in discussion, here can save your time.
+3. If you are a LeetCoder, you want to focus on your weak topics, and have no idea to which problems to solve, here is well classified and provides the most typical examples. Or, you are too tired to find a fastest and elegant answer in discussion, here can save your time.
 4. If you are a python beginner, and want to enhance your advanced pythonic skills, you can take a look at python tricks. Hope you will find useful and elegant tricks here. 
-
-
-
-## Future work
-
-Currently, it is mainly about data structure & algorithm and advanced python coding tricks. Maybe I will add other domain code templates, such as machine-learning, NLP.
 
 
 
 ## Thanks to
 * Thanks to all good problems from LeetCode. In addition, LeetCode has a great OJ platform, and really suitable to do functional and performance test.
 * Many templates and tricks are enlightened by discussions in LeetCode, thanks to all the code masters.
-* Special thanks to [Stephan Pochmann](https://leetcode.com/stefanpochmann/), really learned a lot from him.
+* Special thanks to [Stefan Pochmann](https://leetcode.com/stefanpochmann/), really learned a lot from him.
 
 
 
-## License
+## MIT License
 
 Feel free to use, copy, modify, merge or publish. just add a reference, please. 
 
