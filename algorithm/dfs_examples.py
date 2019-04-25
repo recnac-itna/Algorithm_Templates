@@ -69,7 +69,7 @@ def addOperators(num, target):
                 dfs(num[i:], temp + "+" + val, cur + int(val), int(val), res)
                 dfs(num[i:], temp + "-" + val, cur - int(val), -int(val), res)
                 dfs(num[i:], temp + "*" + val, cur - last + last * int(val), last * int(val),
-                    res)  # revert add and multiply fisrt
+                    res)  # revert add and multiply first
 
     for i in range(1, len(num) + 1):
         if i == 1 or (i > 1 and num[0] != "0"):  # prevent "00*" as a number

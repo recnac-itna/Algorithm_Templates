@@ -71,7 +71,7 @@ def solveSudoku(board):
 
 # [79] https://leetcode.com/problems/word-search/
 # Given a 2D board and a word, find if the word exists in the grid.
-def exist(board: 'List[List[str]]', word: 'str') -> 'bool':
+def exist(board: 'List[List[str]]', word: str) -> bool:
     m, n = len(board), len(board[0])
     bcnts = Counter(c for r in board for c in r)
 

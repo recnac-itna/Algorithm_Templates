@@ -53,6 +53,8 @@ def search_in_rotated_sorted_array(nums: 'List[int]', target: int) -> int:
 # So I have the three checks (nums[0] <= target), (target <= nums[i]) and (nums[i] < nums[0]), and I want to know
 # whether exactly two of them are true. They can't all be true or all be false (check it), so I just need to
 # distinguish between "two true" and "one true". Parity is enough for that, so instead of adding them I xor them
+#
+# variation with xor
 def search_in_rotated_sorted_array2(nums, target):
     lo, hi = 0, len(nums) - 1
     while lo < hi:

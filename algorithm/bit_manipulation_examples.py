@@ -84,8 +84,6 @@ def reverseBits1(n):
     return res
 
 
-# [190] https://leetcode.com/problems/reverse-bits/
-# Reverse bits of a given 32 bits unsigned integer.
 def reverseBits2(n):
     mask, res = 1, 0
     for i in range(32):

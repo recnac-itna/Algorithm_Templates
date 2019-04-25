@@ -66,7 +66,7 @@ def isSameTree1(p, q):
     return p is q
 
 
-# tupleify way:
+# tuplify way:
 def isSameTree2(p, q):
     def t(n):
         return n and (n.val, t(n.left), t(n.right))
