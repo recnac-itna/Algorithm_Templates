@@ -1,6 +1,7 @@
 # The trie is a tree of nodes which supports Find and Insert operations. It is also called prefix tree.
 # trie tree is built to help match the whole words list in one batch.
 # Scenario: autocomplete, spell checker, IP routing, T9 predictive text, solving word games.
+# just basic version, improvement like: double-array trie, tail compressed
 #
 # words list has k words, the max word len is m
 # Time:  O(m) for match once
@@ -41,7 +42,7 @@ def trie_tree_template(word_to_match: str, words_to_build: 'List[str]'):
 ALPHABET_SIZE = 26
 
 
-# object-oriented fixed-list version
+# object-oriented array version
 class TrieNode:
     def __init__(self):
         self.children = [None] * ALPHABET_SIZE
