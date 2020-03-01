@@ -3,7 +3,7 @@
 '''
 Classification:
 1. old & new state: old, new = new, cur_result
-2. slow & fast pointer: slow-> fast->->
+2. slow & fast runner: slow-> fast->->
 3. left & right boundary or index: left-> <-right
 4. p1 & p2 from two sequences: p1-> p2->
 5. start & end sliding window boundary: start-> end->
@@ -13,26 +13,25 @@ Classification:
 # old & new state: old, new = new, cur_result
 def old_new_state(self, seq):
     # initialize state
-    old, new = None, None
+    old, new = default_val1, default_val2
     for element in seq:
         '''
-        process current element with help of old state
+        process current element with old state
         '''
-        cur_result = self.process_logic(element, old)
-        old, new = new, cur_result
+        old, new = new, self.process_logic(element, old)
 
 
-# slow & fast pointer: slow-> fast->->
-def slow_fast_pointer(self, seq):
-    # initialize slow pointer
-    slow = seq[0]   # or slow = 0
-    # fast-runner grows each iteration
-    for fast in range(seq):     # or range(len(seq))
+# slow & fast runner: slow-> fast->->
+def slow_fast_runner(self, seq):
+    # initialize slow runner
+    slow = seq[0]   # for index: slow = 0
+    # fast-runner grows each iteration generally
+    for fast in range(seq):     # for index: range(len(seq))
         '''
-        slow-runner grows with some restrict
+        slow-runner grows with some restrictions
         '''
         if self.slow_condition(slow):
-            slow = slow.next    # or slow += 1
+            slow = slow.next    # for index: slow += 1
         '''
         process logic before or after pointers movement
         '''
@@ -40,7 +39,7 @@ def slow_fast_pointer(self, seq):
 
 
 # left & right boundary or index: left-> <-right
-def left_right_index(self, seq):
+def left_right_boundary(self, seq):
     left, right = 0, len(seq) - 1
     while left < right:
         '''
@@ -86,21 +85,27 @@ def pointers_from_two_seq(self, seq1, seq2):
         self.process_logic(p1, p2)
 
 
-# start & end sliding window boundary: start-> end->
+# start & end of sliding window: |start-> ... end->|
 # more details in sliding windows templates, here is just about two-pointers part
 def start_end_sliding_window(self, seq):
     start, end = 0, 0
 
     while end < len(seq):
+        # end grows in the outer loop
         end += 1
 
-        '''
-        start grows with some restrict
-        '''
-        if self.start_condition(start):
+        # start grows with some restrict
+        while self.start_condition(start):
+            '''
+            process logic before pointers movement
+            '''
+            self.process_logic1(start, end)
+
+            # start grows in the inner loop
             start += 1
+
         '''
-        process logic before or after pointers movement
+        or process logic after pointers movement
         '''
-        self.process_logic(start, end)
+        self.process_logic2(start, end)
 

@@ -56,17 +56,17 @@ def minWindow(s: str, t: str) -> str:
 #
 # variation with list
 def totalFruit(tree: 'List[int]') -> int:
-    cnt = defaultdict(int)
+    counter = defaultdict(int)
     count, start, end, res = 0, 0, 0, 0
 
     while end < len(tree):
-        cnt[tree[end]] += 1
-        if cnt[tree[end]] == 1:
+        counter[tree[end]] += 1
+        if counter[tree[end]] == 1:
             count += 1
         end += 1
         while count > 2:
-            cnt[tree[start]] -= 1
-            if cnt[tree[start]] == 0:
+            counter[tree[start]] -= 1
+            if counter[tree[start]] == 0:
                 count -= 1
             start += 1
         res = max(res, end - start)

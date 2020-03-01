@@ -1,4 +1,5 @@
 from collections import defaultdict
+from functools import reduce
 
 
 # [872] https://leetcode.com/problems/leaf-similar-trees/
@@ -50,6 +51,10 @@ def permuteUnique(nums):
                     break
         ans = new_ans
     return ans
+
+
+def permuteUnique2(nums):
+    return reduce(lambda perms, n: [p[:i] + [n] + p[i:] for p in perms for i in range((p + [n]).index(n) + 1)], nums, [[]])
 
 
 # [282] https://leetcode.com/problems/expression-add-operators/

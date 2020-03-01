@@ -81,3 +81,14 @@ def bfs_recursively(self, queue: deque, visited: set, target=None):
         if next_node not in visited:
             queue.append(next_node)
     self.bfs_recursively(queue, visited)
+
+
+# bfs list comprehension in row of binary tree
+def bfs_row(self, root):
+    row = [root]
+    while row:
+        '''
+        process current node logic here
+        '''
+        # process logic separately
+        row = [child for node in row for child in (node.left, node.right) if node]

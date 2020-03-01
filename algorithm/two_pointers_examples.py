@@ -27,7 +27,7 @@ def mergeTwoLists1(a, b):
 
 
 # first make sure that a is the "better" one (meaning b is None or has larger/equal value). Then merge the remainders behind a.
-def mergeTwoLists2(a, b):
+def mergeTwoLists2(a: int, b: int) -> int:
     if not a or b and a.val > b.val:
         a, b = b, a
     if a:
@@ -178,17 +178,15 @@ def twoSum(numbers: 'List[int]', target: 'int') -> 'List[int]':
 
 # [18] https://leetcode.com/problems/4sum/
 # Find all unique quadruplets in the array which gives the sum of target.
-def fourSum(nums, target):
-    result = []
-    N = len(nums)
-    if N < 4:
-        return result
+def fourSum(nums: 'List[int]', target: int) -> 'List[int]':
+    result, n = [], len(nums)
+    if n < 4: return result
     nums = sorted(nums)
 
     if sum(nums[-4:]) < target:
         return result
 
-    for i in range(N - 3):
+    for i in range(n - 3):
         # boundary checker, stop early
         if sum(nums[i:i + 4]) > target:
             break
@@ -198,17 +196,19 @@ def fourSum(nums, target):
         # skip same element, but keep the first one
         if i > 0 and nums[i] == nums[i - 1]:
             continue
+        # simplify the problem to three sum
         target2 = target - nums[i]
-        for j in range(i + 1, N - 2):
+        for j in range(i + 1, n - 2):
             if sum(nums[j:j + 3]) > target2 or sum(nums[-3:]) < target2:
                 break
             if nums[j] + sum(nums[-2:]) < target2:
                 continue
             if j > i + 1 and nums[j] == nums[j - 1]:
                 continue
+            # simplify the problem to two sum
             target3 = target2 - nums[j]
             left = j + 1
-            right = N - 1
+            right = n - 1
             while left < right:
                 if nums[left] + nums[right] == target3:
                     result.append([nums[i], nums[j], nums[left], nums[right]])
