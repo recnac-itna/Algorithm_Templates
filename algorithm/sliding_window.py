@@ -22,7 +22,7 @@ def sliding_window_template_with_examples(s, p):
 
     # loop the source string from begin to end
     while end < len(s):
-        counter[s[end]] += 1
+        counter[s[end]] -= 1
         # update count based on some condition
         if counter[s[end]] > 1:
             count += 1
